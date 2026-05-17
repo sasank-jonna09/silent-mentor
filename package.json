@@ -1,0 +1,48 @@
+{
+  "name": "silent-mentor",
+  "displayName": "Silent Mentor",
+  "description": "Ephemeral, AI-powered developer behavioral intelligence.",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "silentMentor.endSession",
+        "title": "Silent Mentor: End Session"
+      }
+    ],
+    "configuration": {
+      "title": "Silent Mentor",
+      "properties": {
+        "silentMentor.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Gemini API key for Silent Mentor AI summaries"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}
